@@ -2,6 +2,9 @@
 #include <string>
 using namespace std;
 
+//TC -> O(n^2)
+//SC -> O(1)
+
 int main()
 {
     int x;
