@@ -6,6 +6,7 @@ public:               // Public access specifier
     int a;            // Declare integer variable a
     int b;            // Declare integer variable b
 
+    //Constructor
     calculator() {    // Constructor for the calculator class
         a = 0;        // Initialize variable a to 0
         b = 0;        // Initialize variable b to 0
