@@ -1,3 +1,4 @@
+//  TC = O(n*logn)  & SC = O(1) 
 class Solution{
     public:
         int leftElement(int a[], int n) {
