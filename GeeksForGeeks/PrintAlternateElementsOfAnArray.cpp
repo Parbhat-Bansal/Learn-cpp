@@ -1,3 +1,5 @@
+
+//  TC =O(N)  & SC = O(1)
 void print(int ar[], int n)
 {
     for(int i = 0 ; i<n ; i=i+2)
