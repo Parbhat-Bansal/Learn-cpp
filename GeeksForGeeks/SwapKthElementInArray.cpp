@@ -1,3 +1,5 @@
+// TC = O(N)  &  SC = O(1)
+
 class Solution{
 public:	
 	// swap k'th element from beginning and end
