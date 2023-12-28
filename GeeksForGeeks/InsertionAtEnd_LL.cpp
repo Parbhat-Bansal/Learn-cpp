@@ -18,8 +18,7 @@ void insertAtEnd(Node *&tail, int d)
 {
     Node *temp = new Node(d);
     tail->next = temp;
-    tail = tail->next; // or we can write tail = temp ;cls
-    
+    tail = temp;
 }
 
 void print(Node *&tail)
@@ -37,7 +36,7 @@ void print(Node *&tail)
 int main()
 {
     Node *node1 = new Node(10);
-    Node* head = node1 ; 
+    Node *head = node1;
     Node *tail = node1;
 
     print(head);
