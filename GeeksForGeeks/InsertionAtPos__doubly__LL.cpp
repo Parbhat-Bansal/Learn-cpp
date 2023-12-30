@@ -16,26 +16,46 @@ public:
     }
 };
 
-void insertAtBegin(Node *&head, int d)
+void insertAtEnd(Node *&head, Node *&tail, int d)
 {
-    Node *temp = new Node(d);
-    temp->next = head;
-    head->prev = temp;
-    head = temp;
-}
-void insertAtEnd(Node *&tail, int d)
-{
-    Node *temp = new Node(d);
-    tail->next = temp;
-    temp->prev = tail;
-    tail = temp;
+    if (tail == NULL)
+    {
+        Node *temp = new Node(d);
+        tail = temp;
+        head = temp;
+    }
+    else
+    {
+        Node *temp = new Node(d);
+        tail->next = temp;
+        temp->prev = tail;
+        tail = temp;
+    }
 }
 
-void insertAtPos(Node *head, Node *&tail, int position, int d)
+void insertAtBegin(Node *&head, Node *&tail, int d)
+{
+    if (head == NULL)
+    {
+        Node *temp = new Node(d);
+        head = temp;
+        tail = temp;
+    }
+    else
+    {
+        Node *temp = new Node(d);
+        temp->next = head;
+        head->prev = temp;
+        head = temp;
+    }
+}
+
+void insertAtPos(Node *&head, Node *&tail, int position, int d)
 {
     if (position == 1)
     {
-        insertAtBegin(head, d);
+        insertAtBegin(head, tail, d);
+        cout << "Called insertAtBegin() " << endl;
         return;
     }
 
@@ -49,7 +69,8 @@ void insertAtPos(Node *head, Node *&tail, int position, int d)
 
     if (temp->next == NULL)
     {
-        insertAtEnd(tail, d);
+        insertAtEnd(head, tail, d);
+        cout << "Called insertAtEnd() " << endl;
         return;
     }
     Node *nodetoinsert = new Node(d);
@@ -84,12 +105,8 @@ int getlength(Node *&head)
 
 int main()
 {
-    int a;
-    cout << "Enter 1st element of linkedlist : ";
-    cin >> a;
-    Node *node1 = new Node(a);
-    Node *head = node1;
-    Node *tail = node1;
+    Node *head = NULL;
+    Node *tail = NULL;
     int b;
     cout << endl
          << "Enter length of a linkedlist : ";
@@ -100,21 +117,26 @@ int main()
     for (int i = 1; i <= b; i++)
     {
         cin >> c;
-        insertAtEnd(tail, c);
+        insertAtEnd(head, tail, c);
     }
     print(head);
-
     int length = getlength(head);
     cout << endl
-         << "Now insert at position : ";
+         << "The length is " << length;
+
+    cout << endl
+         << "head " << head->data << " "
+         << "tail " << tail->data;
+    cout << endl
+         << "Now insert at position -----> ";
     int d;
     cout << endl
          << "Enter position at element be insert : ";
     cin >> d;
-    if (d < length || d > length)
+    if (d > length + 1 || d <= 0)
     {
         cout << "Enter valid position " << endl;
-        return 1 ;
+        return 1;
     }
     int e;
     cout << endl
@@ -123,6 +145,8 @@ int main()
 
     insertAtPos(head, tail, d, e);
     print(head);
-
+    cout << endl
+         << "head " << head->data << " "
+         << "tail " << tail->data;
     return 0;
 }
