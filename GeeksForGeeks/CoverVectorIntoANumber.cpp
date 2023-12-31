@@ -24,8 +24,6 @@ vector<int> digit1(vector<int> A, int y)
     {
          cout << B[i] << " " ;
     }
-    // vector<int> C(B.size());
-    // copy(B.begin(), B.end(), C.begin());
     return B;
 }
 
