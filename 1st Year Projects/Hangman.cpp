@@ -51,7 +51,6 @@ int main()
             S--;                                   // Decrease the length of the word left to be guessed
         }
     }
-
     if (remguess > 0 && str.length() == 0)
     {
         cout << "Hurray You Guess the Right Name ";
